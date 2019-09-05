@@ -21,10 +21,10 @@ EventStorageInterface:
 interface EventStorageInterface
 {
   /**
-	 * Stores an event
-	 * @param  EventInterface $event
-	 * @return bool
-	 */
+   * Stores an event
+   * @param  EventInterface $event
+   * @return bool
+   */
   public function store(EventInterface $event) : bool;
 
 }
@@ -43,20 +43,20 @@ namespace SSDMTechTest\Events;
 class SportsListener
 {
 	/**
-	 * Construction of Footballlistener
-	 * @param  Object $event
-	 * @return void
-	 */
+   * Construction of Footballlistener
+   * @param  Object $event
+   * @return void
+   */
 	public function __construct(Object $store)
 	{
     $this->eventStore = $store;
   }
 
   /**
-      	* A handler for sports Events
-      	* @param  Object $event that extends from a class 
-      	* @return void
-   	*/
+   * A handler for sports Events
+   * @param  Object $event that extends from a class 
+   * @return void
+   */
   public function onSportsAction(Object $event)
   {
     $valid_sports = array(
@@ -67,19 +67,19 @@ class SportsListener
       'kickoff',
       'goal',
       'yellowcard',
-		  'redcard',
-		  'penalty',
-		  'halftime',
-		  'fulltime',
-		  'extratime',
-		  'freekick',
-		  'corner'
+      'redcard',
+      'penalty',
+      'halftime',
+      'fulltime',
+      'extratime',
+      'freekick',
+      'corner'
     );
 
         
 
     if ((in_array($event->getSports(), $valid_sports)) i
-  		&& (in_array($event->getEventType(), $validfootballevents))){
+      && (in_array($event->getEventType(), $validfootballevents))){
       $this->eventStore->store($event);
     } else {
       return;
