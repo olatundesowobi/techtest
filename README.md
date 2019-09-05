@@ -4,7 +4,7 @@ Technical Test
 Implemented a Listener Class based on the symfony/eventdispatcher. 
 
 Implemented PHP Unit Tests to identify valid events and to ignore invalid events. 
-In order to test the class used anonymous mock objects were used to represent the 
+In order to test the class used anonymous mock objects to represent the 
 events and the store.
 
 
