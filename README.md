@@ -30,8 +30,7 @@ interface EventStorageInterface
 }
 ```
 
-In order to ensure code is testable and usable until a decision is made on the 
-concrete object class for the event and the store the listener uses object class.
+In order to ensure code is testable and usable the store the listener use object class.
 
 
 ```php
@@ -45,10 +44,9 @@ class SportsListener
 	/**
    * Construction of Footballlistener
    * @param  Object $event
-   * @return void
    */
-	public function __construct(Object $store)
-	{
+  public function __construct(Object $store)
+  {
     $this->eventStore = $store;
   }
 
@@ -82,7 +80,7 @@ class SportsListener
       && (in_array($event->getEventType(), $validfootballevents))){
       $this->eventStore->store($event);
     } else {
-      return;
+      
     }
   }
 }
