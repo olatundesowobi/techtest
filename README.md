@@ -41,7 +41,7 @@ namespace SSDMTechTest\Events;
 
 class SportsListener
 {
-	/**
+  /**
    * Construction of Footballlistener
    * @param  Object $event
    */
