@@ -7,7 +7,8 @@ Implemented PHP Unit Tests to identify valid events and to ignore invalid events
 In order to test the class used anonymous mock objects were used to represent the 
 events and the store.
 
-###For review 
+
+### Review 
     
 It would probably be worthwhile to review the EventInterface which uses the 
 EventInterface interface and not an actual class to define the event object
@@ -19,12 +20,12 @@ EventStorageInterface:
 <?php
 interface EventStorageInterface
 {
-	/**
+  /**
 	 * Stores an event
 	 * @param  EventInterface $event
 	 * @return bool
 	 */
-    public function store(EventInterface $event) : bool;
+  public function store(EventInterface $event) : bool;
 
 }
 ```
@@ -48,42 +49,42 @@ class SportsListener
 	 */
 	public function __construct(Object $store)
 	{
-        	$this->eventStore = $store;
-    	}
+    $this->eventStore = $store;
+  }
 
-    	/**
+  /**
       	* A handler for sports Events
       	* @param  Object $event that extends from a class 
       	* @return void
    	*/
-    public function onSportsAction(Object $event)
-    {
-      	$valid_sports = array(
-        	'football'
-        );
+  public function onSportsAction(Object $event)
+  {
+    $valid_sports = array(
+      'football'
+    );
         
-        $validfootballevents = array(
-        	'kickoff',
-        	'goal',
-        	'yellowcard',
-		'redcard',
-		'penalty',
-		'halftime',
-		'fulltime',
-		'extratime',
-		'freekick',
-		'corner'
-	);
+    $validfootballevents = array(
+      'kickoff',
+      'goal',
+      'yellowcard',
+		  'redcard',
+		  'penalty',
+		  'halftime',
+		  'fulltime',
+		  'extratime',
+		  'freekick',
+		  'corner'
+    );
 
         
 
-        if ((in_array($event->getSports(), $valid_sports)) i
-		&& (in_array($event->getEventType(), $validfootballevents))){
-        	$this->eventStore->store($event);
-        } else {
-        	return;
-        }
+    if ((in_array($event->getSports(), $valid_sports)) i
+  		&& (in_array($event->getEventType(), $validfootballevents))){
+      $this->eventStore->store($event);
+    } else {
+      return;
     }
+  }
 }
 
 ```
@@ -99,9 +100,7 @@ class SportsListener
 
 - `cd` into the project's root directory
 - run `php composer.phar update` to install the dependencies needed.
-- run `vendor/bin/phpunit -c test/phpunit.xml` to run the test suite.
+- run `vendor/bin/phpunit ` to run the test suite.
 
 
-#### Setup without composer
 
-Your setup will vary, but you will require phpunit in order to run the tests, and possibly your own autoloader (if not using the default autoloader that comes with composer). You may need to amend the bootstrap file attributed in the phpunit config if so.
