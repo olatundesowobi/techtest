@@ -44,7 +44,6 @@ class SportsListener
   /**
    * Construction of SportsListener
    * @param  Object $event
-   * @return Object
    */
   public function __construct(Object $store)
   {
